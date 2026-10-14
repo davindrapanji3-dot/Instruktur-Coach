@@ -1,6 +1,5 @@
 <?php
 declare(strict_types=1);
-
 require_once __DIR__ . '/config.php';
 
 $dbError = '';
@@ -13,7 +12,7 @@ $searchLicense = trim((string) ($_GET['lisensi'] ?? ''));
 $notice = '';
 
 function e(string $value): string
-{
+{   
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
 
@@ -87,7 +86,7 @@ try {
     ];
     $notice = $statusMessages[(string) ($_GET['status'] ?? '')] ?? '';
 } catch (PDOException $exception) {
-    $dbError = 'Database tidak dapat diakses. Pastikan MySQL Laragon sedang berjalan dan konfigurasi koneksi sudah sesuai.';
+    $dbError = 'Database tidak dapat diakses';
 }
 ?>
 <!DOCTYPE html>
